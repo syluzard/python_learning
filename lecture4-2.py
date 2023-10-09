@@ -11,6 +11,8 @@ def getfragments(seq, motif):
     #1
     seq = seq.strip().upper()
     motif = motif.strip().upper()
+    #print("seq: ",  seq );
+    #print("motif: ",  motif );
     int_motif_len = len(motif)
     start_motif_position = motif.find('*')
 
@@ -32,10 +34,16 @@ def getfragments(seq, motif):
     #print("post_motif_in_seq_fistposition: ", post_motif_in_seq_fistposition);
 
     #3-3
-    if pre_motif_in_seq_fistposition < 0 :
+    if start_motif_position < 0:
         exist = False;
         return exist, frag1, frag2;
     elif pre_motif_in_seq_fistposition < 0 :
+        exist = False;
+        return exist, frag1, frag2;
+    elif pre_motif_in_seq_fistposition < 0 :
+        exist = False;
+        return exist, frag1, frag2;
+    elif pre_motif_in_seq_fistposition + post_motif_in_seq_fistposition + 2 + len(post_motif_str) == len(seq):
         exist = False;
         return exist, frag1, frag2;
     else : 
@@ -50,6 +58,8 @@ def getfragments(seq, motif):
     #print("frag1: ", frag1)
     #print("frag2: ", frag2)
 
+
+    
     return exist, frag1, frag2;
 
 def main():
